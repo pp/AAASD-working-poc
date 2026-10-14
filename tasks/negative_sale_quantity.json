@@ -1,0 +1,8 @@
+{
+  "id": "negative-sale-quantity",
+  "title": "Reject zero or negative quantities in sales",
+  "request": "Sales accept zero or negative quantities. A sale with qty -3 increases stock by 3 and records negative revenue. A sale must be rejected when any line has a quantity of zero or less. Reject it with an OperationError before any stock is changed or any document is written. Valid sales must keep working. Relevant code: Operations.sell, Operations._sell and Operations._sell_product in operations.py.",
+  "starting_commit": "abc87dccab96c78917b35add542284e61adc5f37",
+  "allowed_write_paths": ["operations.py"],
+  "required_checks": ["acceptance", "regression_core", "regression_reversal"]
+}

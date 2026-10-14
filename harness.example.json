@@ -1,0 +1,23 @@
+{
+  "runs_dir": "runs",
+  "ollama_url": "http://localhost:11434",
+  "model": "llama3.2:3b",
+  "model_timeout_s": 300,
+  "num_ctx": 8192,
+  "max_actions": 25,
+  "max_retries": 3,
+  "max_output_chars": 4000,
+  "max_read_chars": 6000,
+  "max_list_entries": 200,
+  "max_search_hits": 50,
+  "docker_image": "python:3.12-slim",
+  "check_timeout_s": 300,
+  "container_memory": "1g",
+  "container_pids": 256,
+  "checks": {
+    "acceptance": ["python", "/acceptance/check_sale_quantity.py"],
+    "regression_core": ["python", "tests/test_core.py"],
+    "regression_reversal": ["python", "tests/test_reversal_advances.py"]
+  },
+  "denied_paths": [".git", "data", "backups", "documents", "logs", "venv", ".venv", "vendor", "__pycache__", "config_local.json", ".env"]
+}
